@@ -1,0 +1,12 @@
+.header{display: flex;}
+.header a {display: inline-block;
+padding: .5rem 1rem;
+background-color: red;
+text-decoration: none;
+align-items: center;
+}
+.footer{
+  background-color: black;
+  color: white;
+  padding: 3rem 1rem;
+}
