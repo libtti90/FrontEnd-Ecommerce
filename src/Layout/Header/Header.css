@@ -1,0 +1,122 @@
+
+.main-header{    width: 100%;
+    display: flex;
+    height: 80px;
+font-size: 20px;
+    background-color: var(--primary-transp);
+    position: fixed;
+    z-index: 1;}
+ .nav-link {
+    margin-left: 2rem;
+    display: flex;
+    gap: 2rem;
+    list-style-type: none;
+    align-items: center;
+    color: var(--secondary-color);
+    font-weight: 300;
+    text-decoration: none;
+
+}
+.main-nav {
+    display: flex;
+    gap: 5rem;
+    flex-grow: 1;
+}
+.nav-list {
+    margin-left: 2rem;
+    display: flex;
+    gap: 2rem;
+    list-style-type: none;
+    align-items: center;
+    color: var(--secondary-color);
+    font-weight: 300;
+    
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--secondary-color);
+    
+}
+.user-menu {
+    display: flex;
+    align-items: center;
+    margin-right: 2rem;
+
+}
+
+/**/
+.input-check {
+    display: none;
+}
+
+@media (max-width: 768px) {
+
+    .label-menu {
+        width: 50px;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+    
+    }
+    
+    .burger-line {
+        width: 25px;
+        height: 3px;
+        background-color: var(--secondary-color);
+    
+        position: relative;
+    
+    }
+    
+    .burger-line::before,
+    .burger-line::after {
+        content: '';
+        width: 25px;
+        height: 3px;
+        background-color: #755E4C;
+    
+        position: absolute;
+        top: -10px;
+    
+    }
+    
+    .burger-line::after {
+        top: 10px;
+    }
+    
+    .input-check:checked~.main-nav {
+        .nav-list {
+    
+    
+            position: fixed;
+            left: 0;
+            top: 80px;
+            display: flex;
+            flex-direction: column;
+            padding: 1rem;
+            width: 200px;
+            height: 300px;
+            background-color: #f0e8e08e;
+            margin: 0;
+        }
+    
+    }
+    .nav-list {
+
+
+        display: none;
+    }
+
+    .main-nav {
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .main-header {
+
+        font-size: 20px;
+    }
+}

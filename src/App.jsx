@@ -1,44 +1,53 @@
 
 import './App.css'
-import {Routes} from 'react-router-dom'
+import {Routes, Route} from 'react-router-dom'
+import Home from './pages/Home/Home'
+import About from './pages/About/About'
+import Login from './pages/Login/Login'
+import Register from './pages/Register/Register'
+import Contact from './pages/Contact/Contact'
+import AdminProduct from './pages/AdminProduct/AdminProduct'
+import AdminUser from './pages/AdminUser/AdminUser'
+import Header from './Layout/Header/Header'
+import Footer from './Layout/Footer/Footer'
+import AdminRoute from './Guard/AdminRoute/AdminRoute'
+
 
 function App() {
 
 
   return (
     <>
-      <header className='header'>
-        <a href="">Home</a>
-        <a href="">Contact</a>
-        <a href="">Register</a>
-        <a href="">About Us</a>
-        <a href="">Admin Product</a>
-        <a href="">Admin User</a>
-        <a href="">Login</a>
-      </header>
+      <Header />
 
       <main className='main'>
         <Routes>
+         <Route path='/' element={<Home/>}/>
+         <Route path='/About' element={<About/>}/>
+         <Route path='/Contact' element={<Contact/>}/>
+         <Route path='/Register' element={<Register/>}/>
+         <Route path='/Login' element={<Login/>}/>
+
+         <Route path='/AdminUser' element={<AdminRoute><AdminUser/></AdminRoute>}/>
+         <Route path='/AdminProduct' element={<AdminRoute><AdminProduct/></AdminRoute>}/>
+
+         
         
+
         </Routes>
-        <h1>Home</h1>
-        <h1>Contact</h1>
-        <h1>Register</h1>
-        <h1>About Us</h1>
-        <h1>Admin Product</h1>
-        <h1>Admin Users</h1>
-        <h1>Login</h1>
+      
+        
+
+       
 
         
 
       </main>
+      <Footer />
 
 
 
-
-      <footer className='footer'>
-        Pie de pagina
-      </footer>
+      
     </>
   )
 }
