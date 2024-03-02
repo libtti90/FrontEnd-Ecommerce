@@ -100,7 +100,7 @@ form {
     }
 }
 
-.form-register::after {
+form::after {
     content: "";
 
     width: 100%;

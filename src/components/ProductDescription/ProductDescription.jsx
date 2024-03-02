@@ -1,20 +1,15 @@
-import './ProductCard.css'
+import './ProductDescription.css'
 import React from 'react'
 
-export const ProductCard = (props) => {
+export const ProductDescription = (props) => {
 
   return (
     <>
-<articule className="card-box" >
+<articule class="card-box" >
 
-<div className="card">
+<div class="card">
 
-<header className="card-header">
-<div className="img-box">
-                <img src={props.product.image} class="card-image" loading="lazy"/>
-                
-                    
-            </div>
+<header class="card-header">
         <h2 className="card-info-title">{props.product.name}</h2>
 </header>
       <div className="card-body">
@@ -46,4 +41,3 @@ export const ProductCard = (props) => {
 
   )
 }
-

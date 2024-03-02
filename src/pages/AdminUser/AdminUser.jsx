@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import axios from 'axios';
@@ -7,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 
 const URL = import.meta.env.VITE_SERVER_URL;
-//defino variable global para mi componente
+
 const token=localStorage.getItem('token');
 
 export default function AdminUser() {
@@ -77,6 +78,7 @@ function logout() {
             });
 
             getUsers();
+           
         } 
         
         
@@ -109,44 +111,63 @@ function logout() {
 
 
   async function submitedData(data) {
-    
+
+console.log(data);
+
+const formData=new FormData();
+
+
+for(const key of Object.keys(data)){
+  if(key=='image'){
+    formData.append(key,data.image[0])
+    continue;
+  }
+  formData.append(key,data[key])
+}
+
+
+
     try {
+
+      
       
       if(userId){
         if(!token)return;
-        const response = await axios.put(`${URL}/users/${userId}`, data, {
+        const response = await axios.put(`${URL}/users/${userId}`, formData, {
           headers: {
             authorization: token,
           },
         });
         Swal.fire({
           icon: 'success',
-          title: `User ${response.data.user.name} edited`,
+          title: `User ${response.data.user?.name} edited`,
           iconColor: '#36B37E',
         });
 
         
         getUsers();
         setUserId(null);
-        return
+        setFormValue();
+        return;
       }
 
-      const response= await axios.post( `${URL}/users`, data);
+      const response= await axios.post( `${URL}/users`, formData);
       Swal.fire({
         icon: 'success',
-        title: `User ${response.data.user.name} created`,
+        title: `User ${response.data.user?.name} created`,
         iconColor: '#36B37E',
       });
       
       getUsers();
       setFormValue();
       
+      
 
     } 
     catch (error) {
       
       Swal.fire({
-        icon:error,
+        icon:"error",
         title:'User no created',
         text:'information is not correct'
 
@@ -179,11 +200,17 @@ function logout() {
       <div className="admin-dashboard">
         
         <div className="form-container">
-          <div className="form-sticky">
-            <div className="top-form">
+
+          <div className="top-form">
+            
+           
             <h2 className="admin-form-title">Register User
           {
-            userId && (<button className="btn btn-danger" onClick={()=>setFormValue()}><i class="fa-solid fa-x"></i></button>)
+            userId && (
+            <button className="btn btn-danger"
+             onClick={()=>setFormValue()}>
+              <i class="fa-solid fa-x"></i>
+              </button>)
           }
           
           </h2>
@@ -192,21 +219,22 @@ function logout() {
           
 
 
-<form className="admin-form" onSubmit={handleSubmit(submitedData)}>
-  <label htmlFor="name">Full Name</label>
+<form className="admin-form" onSubmit={handleSubmit(submitedData)}
+ encType="multipart/form-data">
+  <label className="form-label"htmlFor="name">Full Name</label>
   <input type="text" id="name" className="admin-input" {...register("name")} />
 
-  <label htmlFor="email">Email</label>
+  <label className="form-label" htmlFor="email">Email</label>
   <input id="email" type="email" className="admin-input" {...register("email")} />
 
-  <label htmlFor="password">Password</label>
+  <label className="form-label" htmlFor="password">Password</label>
   <input id="password" type="password" disabled={userId} className="admin-input" {...register("password")} />
   
-  <label htmlFor="age">Edad</label>
+  <label className="form-label" htmlFor="age">Edad</label>
   <input id="age" className="admin-input" {...register("age")} />
 
-  <label htmlFor="image">Image</label>
-  <input type="url" className="admin-input" {...register("image")} />
+  <label className="form-label" htmlFor="image">Image</label>
+  <input type="file"accept="image/*" className="admin-input" {...register("image")} />
 
   Active<input type="checkbox" className="admin-input" {...register("active")} />
 
@@ -221,14 +249,15 @@ function logout() {
           </div>
           
 
-        </div>
+     
 
         <div className="table-container">
-          <h2>Users</h2>
+          
           <UserTable users={dbUsers} deleteUser={deleteUser} setFormValue={setFormValue} />
           
         </div>
-      </div>
+        </div>
+     
     </>
   
   )

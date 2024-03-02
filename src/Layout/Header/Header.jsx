@@ -1,10 +1,15 @@
 import { NavLink,useNavigate } from 'react-router-dom';
 import './Header.css';
 
+
+
+
 export default function Header() {
 const navigate=useNavigate();
     const isAdmin = true;
+
 const currentUser=JSON.parse(localStorage.getItem('currentUser'));
+
 function logout(){
     localStorage.removeItem("currentUser");
     localStorage.removeItem("token");
@@ -30,7 +35,7 @@ function logout(){
 
             {
                 currentUser? <NavLink onClick={()=>logout()}>Logout</NavLink>
-                :<NavLink to="/Login" className="nav-link">Login</NavLink>
+                : <NavLink to="/Login" className="nav-link">Login</NavLink>
             }
             
 

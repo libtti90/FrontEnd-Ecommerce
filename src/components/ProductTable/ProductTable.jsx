@@ -1,7 +1,7 @@
 import React from 'react'
-import ProductTableRow from '../ProductTableRow/ProductTableRow'
 
-export default function ProductTable(products) {
+
+export default function ProductTable({products,deleteProduct,setFormValue}) {
   return (
     <>
   
@@ -19,7 +19,7 @@ export default function ProductTable(products) {
                                 Date
                             </th>
                             <th>
-                                Description
+                            characteristics
                             </th>
                             <th>
                                 Price
@@ -30,9 +30,27 @@ export default function ProductTable(products) {
                         </tr>
                     </thead>
                     <tbody>
-                        {products.map((product) => (
-                           <ProductTableRow key={product._id} product={product}  />
-                        ))}
+                    {
+                        products.map((prod)=>(
+                            <tr key="">
+                                <td>{prod.imagen}</td>
+                                <td>{prod.name}</td>
+                                <td>{prod.createdAt}</td>
+                                <td>{prod.materials},{prod.color}</td>
+                                <td>{prod.price}</td>
+                                <td className='actions'>
+                        <button className='btn-table' onClick={() => deleteProduct(prod._id)}>
+                            <i className="fa-solid fa-trash"></i>
+                        </button>
+                        <button className='btn-table' onClick={()=>setFormValue(prod)}>
+                            <i className="fa-solid fa-pencil"></i>
+                        </button>
+                    </td>
+                            </tr>
+                        ))
+                    }
+                  
+              
 
                     </tbody>
                 </table>

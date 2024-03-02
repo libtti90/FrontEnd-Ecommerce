@@ -1,4 +1,6 @@
 import { NavLink } from "react-router-dom";
+import logo from '../../../src/assets/logo/logo4.png';
+
 
 
 export default function Footer() {
@@ -6,7 +8,7 @@ export default function Footer() {
     <footer className='main-footer'>
             <section className="footer-section">
             <div className="footer-logo">
-                <img className="footer-logo" src="assets/logo/logo4.png" alt="" />
+            <img className="footer-logo" src={logo} alt="" />
             </div>
         </section>
 
@@ -48,9 +50,11 @@ export default function Footer() {
             <div className="social-media">
                 <ul className="footer-list" />
 
-                <li><NavLink to="/" className="link-footer">Facebook</NavLink></li>
-                <li><NavLink to="/" className="link-footer">Instagram</NavLink></li>
-                <li><NavLink to="/" className="link-footer">Twitter</NavLink> </li>
+                <li><NavLink to="/" className="link-footer">Facebook</NavLink>
+ 
+ <i class="fa-brands fa-facebook"></i></li>
+                <li><NavLink to="/" className="link-footer">Instagram</NavLink><i class="fa-brands fa-instagram"></i></li>
+                <li><NavLink to="/" className="link-footer">Twitter</NavLink> <i class="fa-brands fa-twitter"></i></li>
                 
                     
             </div>

@@ -1,4 +1,5 @@
 import './About.css'
+import bioPhoto from "../../assets/images/aboutpicture.png"
 
 export default function About() {
   return (
@@ -6,7 +7,7 @@ export default function About() {
     <main class="main-container">
     <section class="about-container">
     <div className="bio-container">
-      <img className="photo-id" src="/assets/images/aboutpicture.png" alt="bio-photo" loading="lazy" />
+      <img className="photo-id" src={bioPhoto} alt="bio-photo" loading="lazy" />
       <h3 className="title-photo">Liliana Bainotti</h3>
       <p className="bio-description">
         As the web developer behind Woodland Furniture, I've crafted this website to showcase our exquisite furniture
