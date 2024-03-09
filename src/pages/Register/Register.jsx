@@ -198,7 +198,7 @@ for(const key of Object.keys(data)){
     <>
     
     <main className="main-container-register">
-    <div className="admin-dashboard">
+    <div className="admin-dashboard-register">
         
         <div className="form-container">
 

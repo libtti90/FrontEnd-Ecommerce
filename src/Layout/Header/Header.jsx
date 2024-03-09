@@ -46,6 +46,11 @@ export default function Header() {
             )}
             </ul>
             </nav>
+            <div class="user-menu" id="user-menu">
+            <div class="loginLink" id="loginLink"></div>
+            <a href=""><i id="cart" class="fa-solid fa-cart-shopping"></i></a>
+
+        </div>
 
         </header>
     )

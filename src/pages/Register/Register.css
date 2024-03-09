@@ -17,11 +17,12 @@
 
 
 
-.admin-dashboard {
+.admin-dashboard-register{
 
     text-align: center;
     color: var(--secondary-color);
     background-color: var(--primary-color);
+    
     width: auto;
     height: 900px;
     border-radius: 5px;

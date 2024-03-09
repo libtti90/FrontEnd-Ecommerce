@@ -21,7 +21,8 @@ export default function AdminProduct() {
   
   const[productId,setProductId]=useState();
   const navigate=useNavigate();
-
+//primer cambio 
+const [imageFile, setImageFile] = useState(null);
 
   async function getCategories() {
     try {
@@ -194,7 +195,11 @@ function logout(){
     
   }
 }
-
+function handleImageChange(event) {
+  const selectedImage = event.target.files[0];
+  setImageFile(selectedImage);
+  setValue("image", selectedImage);
+}
   function setFormValue(prod) {
  
     setProductId(prod?._id || "");
@@ -206,7 +211,7 @@ function logout(){
     setValue("characteristics", prod?.characteristics || "");
   
 
-    setValue("image", prod?.image || "");
+
 
   }
 
@@ -215,7 +220,7 @@ function logout(){
   return (
     <>
       <div className="admin-dashboard">
-        <div className="form-container">
+        <div className="form-container-form">
           
           <div className="top-form">
             <h2 className="admin-form-title">Product

@@ -19,9 +19,14 @@
   min-height: 100dvh;
 }
 
-.card-container{
+.main-container{
   margin: 3rem 0;
+
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
+
 
 :root {
     --primary-color: #f0e8e0;
@@ -41,10 +46,6 @@
 
 }
 
-.main-container{
-  width: 100%;
-  max-width: 1200px;
-}
 
 /*//////////////////////////////ADMIN//////////////////////*/
 
@@ -53,6 +54,10 @@
 .admin-dashboard{
   display: flex;
   flex-direction: column;
+  background-color:white;
+  margin: 1rem;
+ 
+  height: auto;
   
 }
 .admin-dashboard > * {
@@ -68,14 +73,19 @@
   align-items: center;
   width: 100%;
   position: relative;
+  margin-left: 0;
+  
 }
-.form-container{width: auto;
+.form-container-form{width: auto;
 max-width: 400px;
 display: flex;
 flex-direction: column;
 align-items: center;
 position: relative;
-height: auto;
+background-color: var(--primary-color);
+padding-top: 0;
+padding-bottom: 0;
+
 
 }
 .top-form{
@@ -145,7 +155,6 @@ form {
 
 
 
-
 }
 .form-label {
   display: block;
@@ -204,3 +213,21 @@ padding: 1rem;}
   object-fit: cover;
   padding: 1rem;
 }
+
+
+@media screen and (width < 1024px) {
+  .main-container {
+     
+      flex-direction:column;
+  }
+  th, td {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .admin-dashboard{
+      display: flex;
+      flex-direction: column;
+    }
+
+  }
