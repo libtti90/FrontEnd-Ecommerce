@@ -120,20 +120,24 @@ export default function AdminProduct() {
 
     console.log(data);
 
+
+
     const formData=new FormData();
+
+
+
     for(const key of Object.keys(data)){
-      if(key=='image'){
+      if(key ==='image'){
         formData.append(key,data.image[0])
         continue;
       }
-      formData.append(key,data[key])
+      formData.append(key, data[key])
     }
+   
     
 
-    
-    
-  
 
+    
     try {
       
 
@@ -199,7 +203,9 @@ function logout(){
     setValue("price", prod?.price || "");
     setValue("date", prod?.date || "");
 
-    setValue("characteristics", prod?.materials || "");
+    setValue("characteristics", prod?.characteristics || "");
+  
+
     setValue("image", prod?.image || "");
 
   }
@@ -224,20 +230,23 @@ function logout(){
           </div>
 
 
-          <form className="admin-form" onSubmit={handleSubmit(submitedData)}
+          <form className="admin-form" onSubmit={handleSubmit(submitedData) }encType="multipart/form-data"
            >
             <label className="form-label" htmlFor="product">Product</label>
             <input type="text" id="product" className="admin-input" {...register("name")} />
 
             <label className="form-label" htmlFor="price">Price</label>
             <input id="price" type="number" className="admin-input" {...register("price")} />
+            
             <label className="form-label" htmlFor="characteristics">Characteristics</label>
-            <textarea id="characteristics" className="admin-input" {...register("characteristics")} ></textarea>
+         <textarea id="characteristics" className="admin-input" {...register("characteristics")} ></textarea>
+
             <label className="form-label" htmlFor="date">Date</label>
             <input id="date" className="admin-input" {...register("date")} />
 
             <label className="form-label" htmlFor="image">Image</label>
             <input type="file" accept="image/*" className="admin-input" {...register("image")} />
+            
 
             Active<input type="checkbox" className="admin-input" {...register("active")} />
 

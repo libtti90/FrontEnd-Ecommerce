@@ -1,6 +1,14 @@
+
 import './ProductCard.css'
 import React from 'react'
+import { NavLink } from 'react-router-dom';
+import formatDate from '../../utils/formatDate';
 
+
+
+
+
+const URL = import.meta.env.VITE_SERVER_URL;
 export const ProductCard = (props) => {
 
   return (
@@ -11,7 +19,13 @@ export const ProductCard = (props) => {
 
 <header className="card-header">
 <div className="img-box">
-                <img src={props.product.image} class="card-image" loading="lazy"/>
+  
+  <img src={`${URL}/images/products/${props.product.image}`} alt="Product Image" />
+  
+  
+  
+  
+
                 
                     
             </div>
@@ -25,16 +39,23 @@ export const ProductCard = (props) => {
 
       <div className="values">
 
-        <div className="card-price">{props.product.price}</div>
+        <div className="card-price">${props.product.price}</div>
+        <div className="card-price">{formatDate(props.product.createdAt)}</div>
+        
 
       </div>
 
 
  <footer className="card-footer">
 
-        <button className="card-btn" onclick="seeMore( '${product.id}')">See more</button>
-        <button className="card-btn">Comprar</button>
 
+        <NavLink className="btn-transparent  card-btn" to={`/product-detail/${props.product._id}`}>
+					Ver mas
+				</NavLink>
+
+        <NavLink className="btn-transparent card-btn">Comprar</NavLink>
+       
+        
 </footer>
 
 

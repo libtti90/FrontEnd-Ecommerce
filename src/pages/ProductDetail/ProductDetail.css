@@ -1,0 +1,40 @@
+.card-description{
+    margin: 4rem 0;
+    background-color: var(--primary-color);
+}
+.card-box-detail{
+   margin-top: 6rem;
+    display: flex;
+    flex-direction: column;
+    padding-left: 3rem;
+    
+}
+.card-body-detail{
+    padding-left: 3rem;
+
+    
+}
+.box-information{
+    display: flex;
+    
+}
+.product-description{
+    padding: 0 3rem;
+}
+.card-header{
+    background-color: var(--primary-color);
+}
+
+@media (width < 768px) {
+    .card-box-detail{
+        display: flex;
+        flex-direction: column;
+    
+    }
+    .box-information{
+        display: flex;
+        flex-direction: column;
+        
+    }
+ }
+ 

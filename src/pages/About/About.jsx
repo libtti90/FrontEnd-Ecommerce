@@ -1,11 +1,13 @@
+import React from 'react'
 import './About.css'
 import bioPhoto from "../../assets/images/aboutpicture.png"
 
 export default function About() {
   return (
     <>
-    <main class="main-container">
+    <main class="main-container-about">
     <section class="about-container">
+
     <div className="bio-container">
       <img className="photo-id" src={bioPhoto} alt="bio-photo" loading="lazy" />
       <h3 className="title-photo">Liliana Bainotti</h3>
@@ -14,6 +16,7 @@ export default function About() {
         collection, making it easy for you to explore, choose, and bring the timeless beauty of wood into your home.
       </p>
     </div>
+    
     <div class="container-web-info">
     <h1 class="title-about"> About Woodland</h1>
     <p class="description-about"> Welcome to Woodland Furniture, your one-stop destination for exquisite

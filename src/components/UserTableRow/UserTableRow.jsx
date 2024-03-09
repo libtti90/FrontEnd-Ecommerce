@@ -1,6 +1,11 @@
 import React from 'react'
 import defaultPicture from '../../assets/images/default.png'
+const URL = import.meta.env.VITE_SERVER_URL;
+import {useUser} from "@/context/UserContext"
+
 export const UserTableRow = ({ usr, deleteUser,setFormValue }) => {
+const {user}=useUser();
+console.log(user)
 
     return (
         <>
@@ -9,7 +14,7 @@ export const UserTableRow = ({ usr, deleteUser,setFormValue }) => {
 
 
                 <td className='"table-img'>
-                    <img className="table-img " src={usr.image ? usr.image : defaultPicture} />
+                    <img className="table-img " src={usr.image ? `${URL}/images/users/${usr.image}` : defaultPicture} />
                     </td>
 
                     <td className="table-name">

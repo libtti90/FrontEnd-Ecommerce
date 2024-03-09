@@ -1,20 +1,17 @@
-import { NavLink,useNavigate } from 'react-router-dom';
+import { NavLink} from 'react-router-dom';
 import './Header.css';
+import {useUser} from "../../context/UserContext";
 
 
 
 
 export default function Header() {
-const navigate=useNavigate();
-    const isAdmin = true;
 
-const currentUser=JSON.parse(localStorage.getItem('currentUser'));
+  const {user,logout}=useUser();
+  const isAdmin = user?.role ==="ADMIN_USER"
 
-function logout(){
-    localStorage.removeItem("currentUser");
-    localStorage.removeItem("token");
-    navigate("/");
-}
+
+
 
     return (
         <header className='main-header'>
@@ -31,10 +28,12 @@ function logout(){
             <NavLink to="/Contact" className="nav-link">Contact</NavLink>
             <NavLink to="/Register" className="nav-link">Register</NavLink>
             <NavLink to="/About" className="nav-link">About Us</NavLink>
+
+
             
 
             {
-                currentUser? <NavLink onClick={()=>logout()}>Logout</NavLink>
+                user? <NavLink className='nav-link' onClick={()=>logout()}>Logout</NavLink>
                 : <NavLink to="/Login" className="nav-link">Login</NavLink>
             }
             

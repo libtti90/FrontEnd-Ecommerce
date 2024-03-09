@@ -1,5 +1,5 @@
-.main-container {
-    background-image: url(/assets/images/pruebabackcontact.png);
+.main-container-contact {
+    background-image: url('../../assets/images/pruebabackcontact.png');
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
@@ -87,7 +87,7 @@
 
 }
 
-.contact-form-container {
+.contact-form-container-map {
     background-color: var(--primary-color);
     flex: 1 0 0%;
     width: 300px;
@@ -116,7 +116,7 @@
 
 }
 
-.contact-form-container::before {
+.contact-form-container-map::before {
     content: "";
 
     width: 100%;

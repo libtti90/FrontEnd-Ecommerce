@@ -11,6 +11,12 @@ import AdminUser from './pages/AdminUser/AdminUser'
 import Header from './Layout/Header/Header'
 import Footer from './Layout/Footer/Footer'
 import AdminRoute from './Guard/AdminRoute/AdminRoute'
+import ProductDescription from './pages/ProductDescription/ProductDescription'
+import { ProductDetail } from "./pages/ProductDetail/ProductDetail";
+
+
+
+
 
 
 function App() {
@@ -27,9 +33,12 @@ function App() {
          <Route path='/Contact' element={<Contact/>}/>
          <Route path='/Register' element={<Register/>}/>
          <Route path='/Login' element={<Login/>}/>
-
          <Route path='/AdminUser' element={<AdminRoute><AdminUser/></AdminRoute>}/>
          <Route path='/AdminProduct' element={<AdminRoute><AdminProduct/></AdminRoute>}/>
+         <Route path='/' element={<Login/>}/>
+         <Route path='/ProductDescription' element={<ProductDescription/>}/>
+         <Route path="/product-detail/:id" element={ <ProductDetail /> } />
+       
 
          
         

@@ -1,15 +1,12 @@
 
-
 .login-container{
     display: flex;
     align-items: center;
     justify-content: center;
-    
-   
-    
-    
+       
    
 }
+
     
 .login-wrapper {
    display: flex;
@@ -18,16 +15,17 @@
    justify-content: center;
     padding: 2rem;
     width: 350px;
-    height: 300px;
+    height: 370px;
     margin: 0 auto;
     border: 1px solid #ccc9;
     flex-grow: 1;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 color: var(--secondary-color);
     background-color: var(--primary-color);
+    
 
     .login-title {
-        margin-bottom: 1rem;
+        margin: 1rem;
     }
 }
 .input-group{

@@ -1,11 +1,16 @@
 import { Navigate } from "react-router-dom";
+import {useUser} from "../../context/UserContext";
 
 
 
 export default function AdminRoute({ children }) {
-const isAdmin=true;
+
+const {admin}=useUser();
+
 
   return (
-   isAdmin ? children : <Navigate to='/' replace />
+   admin ? children : <Navigate to='/' replace />
   )
 }
+
+

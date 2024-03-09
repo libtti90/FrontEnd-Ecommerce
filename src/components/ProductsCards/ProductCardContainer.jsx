@@ -35,7 +35,7 @@ export default function ProductCardContainer() {
 
   return (
     <>
-      <section className="card-container">Product Card Container
+      <section className="card-container">
       {
         products.map(product => {
           return (

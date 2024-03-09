@@ -19,7 +19,9 @@
   min-height: 100dvh;
 }
 
-
+.card-container{
+  margin: 3rem 0;
+}
 
 :root {
     --primary-color: #f0e8e0;
@@ -117,7 +119,15 @@ height: auto;
 .actions{display: flex;
 justify-content: space-evenly;}
 
-
+.product-description-row{
+  display: -webkit-box;
+   -webkit-box-orient: vertical;
+   -webkit-line-clamp: 4;
+   overflow-y: hidden;
+   text-overflow: ellipsis;
+   text-align: justify;
+   padding-left: 1rem;
+}
 
 
 form {
@@ -180,7 +190,9 @@ height: 20px;}
 td{
   padding: 0 1rem;
   width: 200px;
-  background-color: var(--primary-color)
+  background-color: var(--primary-color);
+  
+  
   
 }
 th{background-color: var(--third-color);
